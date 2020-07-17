@@ -10,12 +10,10 @@ class Player:
         self.hp -= int(vida)
         print('Você tomou ', vida, ' de dano')
         if(self.hp < 1):
-            print('Você morreu!')
+            print('Você morreu! ☠')
             self.alive = False
         
     def defense(self, vida, arm):
-        self.hp -= (int(vida) - int(arm))
-        print('Você tomou ', (vida - arm), ' de dano')
-        if(self.hp < 1):
-            print('Você morreu! ☠')
-            self.alive = False
+        self.losshp(int(vida) - int(arm))
+        
+       
