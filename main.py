@@ -7,7 +7,7 @@ def separador():
 goblinhp = 80
 goblinatk = randint(8, 13)
 goblinarm = randint(5, 9 )
-mon = Npc('Goblin', 80, goblinatk, goblinarm)
+mon = Npc('Goblin', goblinhp, goblinatk, goblinarm)
 separador()
 print(f'''{'Boas vindas à "Crise Infinita Infinita Infinita.':.^30}
 {'Você irá batalhar infinitamente, até cansar ou morrer.':.^30}
@@ -62,24 +62,57 @@ print('.')
 
 separador()
 while j1.alive:
+    print(f'Um {mon.name} apareceu! Prepare-se!')
+    for i in range(9):
+        sleep(0.25)
+        print('=', end= " ", flush= True)
+    print('=')
     while j1.alive and mon.alive:
-        mon.losshp(j1.atk)
-        sleep(2)
-        if not mon.alive:
-            monkilled += 1
-            goblinhp += 1
-            mon = Npc(mon.name, goblinhp, mon.atk +3, 0)
-            print('='*15)
-            break
-        else:
+        monchoose = str(randint(1,2))
+        print('''Erga sua arma contra essa vil criatura ou defenda-se!
+        [  1  ] Para atacar
+        [  2  ] Para defender ''')
+        batchoose = (str(input('Escolha uma opção: ')))
+        if monchoose in '1' and batchoose in '1':
+            j1.losshp(mon.atk)
+            sleep(2)
+            if not j1.alive:
+                break
+            print (f'Você está com {j1.hp} de HP.')   
+            mon.losshp(j1.atk)
+            sleep(2)
+            if not mon.alive:
+                monkilled += 1
+                goblinhp += 5
+                mon = Npc(mon.name, goblinhp, mon.atk +3, 0)
+                print('='*15)
+                break
+            else:
+                print (f'{mon.name} está com {mon.hp} de HP.')
+        if monchoose in '1' and batchoose in '2':
+            j1.defense(mon.atk, j1.arm)
+            sleep(2)
+            if not j1.alive:
+                break
+            print (f'Você está com {j1.hp} de HP.')  
             print (f'{mon.name} está com {mon.hp} de HP.')
-        sleep(2)
-        j1.losshp(mon.atk)
-        sleep(2)
-        if not j1.alive:
-            break
-        print (f'Você está com {j1.hp} de HP.')
-        j1.hp += 10
+        if monchoose in '23' and batchoose in '1':
+            mon.defense(j1.atk, mon.arm)
+            sleep(2)
+            if not mon.alive:
+                monkilled += 1
+                goblinhp += 5
+                mon = Npc(mon.name, goblinhp, mon.atk +3, 0)
+                print('='*15)
+                break
+            print (f'Você está com {j1.hp} de HP.')
+            print (f'{mon.name} está com {mon.hp} de HP.')
+        if monchoose in '23'  and batchoose in '2':
+            sleep(2)
+            j1.hp += 10
+            print(f'Você ganhou +10HP')
+            print (f'Você está com {j1.hp} de HP.')
+            print (f'{mon.name} está com {mon.hp} de HP.')
         for i in range(9):
             sleep(0.25)
             print('=', end= " ", flush= True)
