@@ -15,7 +15,7 @@ class Npc:
 
     def defense(self, vida, arm):
         self.hp -= (int(vida) - int(arm))
-        print(self.name, (vida - arm), ' de dano')
+        print(self.name, 'tomou', (vida - arm), ' de dano')
         if(self.hp < 1):
             print(self.name, ' morreu!')
             self.alive = False
