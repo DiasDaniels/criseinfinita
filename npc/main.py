@@ -5,17 +5,24 @@ class Npc:
         self.atk = atk
         self.arm = arm
         self.alive = True
+        self.defend = False
 
-    def losshp(self, vida):
-        self.hp -= int(vida)
-        print(self.name, ' tomou ', vida, ' de dano')
+    def __losshp(self, dmg):
+        self.hp -= int(dmg)
+        print(self.name, ' tomou ', dmg, ' de dano')
+        print( self.name, ' está com ', self.hp, ' de HP')
+        self.__amIDead()        
+
+    def __defense(self, dmg):
+        self.__losshp(int(dmg) - int(self.arm))
+    
+    def __amIDead(self):
         if(self.hp < 1):
-            print(self.name, ' morreu!')
+            print(f'{self.name} morreu! ☠')
             self.alive = False
 
-    def defense(self, vida, arm):
-        self.hp -= (int(vida) - int(arm))
-        print(self.name, 'tomou', (vida - arm), ' de dano')
-        if(self.hp < 1):
-            print(self.name, ' morreu!')
-            self.alive = False
+    def calculateDamage(self,dmg):
+        if(not self.defend):
+             self.__losshp(dmg)
+        if(self.defend):
+            self.__defense(dmg)    
