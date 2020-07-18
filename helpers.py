@@ -10,7 +10,7 @@ def separador():
 
 def separador10s():
   for i in range(9):
-    sleep(0.1)
+    sleep(1)
     print('.', end= " ", flush= True)
-  sleep(0.1)
+  sleep(1)
   print('.')
