@@ -18,9 +18,10 @@ class Player(Char):
 
     def setScore(self,score:int):
         if score in [100, 300, 600, 1200, 2400, 4800]:
-            print('Você subiu de nível! ATK + 10 || DEF + 5')
+            print('Você subiu de nível! ATK + 10 || DEF + 5 || Vida regenerada!')
             self.atk += 10
             self.arm += 5
+            self.hp = 100
 
         else:
             print('Vocẽ recebeu', self.__score, 'de experiência!')

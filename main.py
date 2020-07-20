@@ -19,7 +19,7 @@ name = (input(str("Qual é o seu nome, Aventureiro? "))).strip().capitalize()
 arma = ''
 monkilled = 0
 bosskilled = 0
-j1 = makePlayer(name)
+
 
 mon = makeNpc(monkilled)
 
@@ -50,6 +50,7 @@ else:
     artigo = ['uma','sua']
 helpers.separador()
 
+j1 = makePlayer(name, opt)
 
 print (f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, ouviu um chamado abaixo de uma ponte que cruzava um córrego
 um velho homem fedorento que tinha com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve, o mendigo, ausente de suas

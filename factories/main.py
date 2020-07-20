@@ -2,6 +2,7 @@ from npc.goblin.main import Goblin
 from npc.ogre.main import Ogre
 from random import randint
 from player.main import Player
+
 def makeGoblin(score:int):
     goblinhp = 80
     baseAtk = 8 + (5*score) 
@@ -22,10 +23,20 @@ def makeOgre(score:int):
     ogrearm = randint(baseArm, maxArm)
     return Ogre(ogrehp, ogreatk, ogrearm)
 
-def makePlayer(name:str):
-    hp = 100
-    atk = 15
-    arm = 10
+def makePlayer(name:str, classe:int):
+    if classe == 1:
+        hp = 100
+        atk = 15
+        arm = 10
+    elif classe == 2:
+        hp = 100
+        atk = 22
+        arm = 8
+    else:
+        hp = 100
+        atk = 8
+        arm = 15
+
     return Player(name, hp, atk, arm)
 
 def makeNpc(score:int):
