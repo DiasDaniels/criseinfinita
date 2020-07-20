@@ -15,7 +15,10 @@ class Char:
         self.__amIDead()        
 
     def __defense(self, dmg):
-        self.__losshp(int(dmg) - int(self.arm))
+        if dmg < self.arm:
+            self.__losshp(0) 
+        else:    
+            self.__losshp(int(dmg) - int(self.arm))
     
     def __amIDead(self):
         if(self.hp < 1):
