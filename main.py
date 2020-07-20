@@ -67,8 +67,7 @@ while j1.alive:
     Battle(j1,mon)
     if(j1.alive):
         monkilled += 1
+        j1.setScore (monkilled * 100)
         mon = makeGoblin(monkilled)
 
-print(f'Fim de jogo, você fez {monkilled * 100} pontos!')
-
-
+print('Fim de jogo, você fez', j1.getScore(), 'pontos!')
