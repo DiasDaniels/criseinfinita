@@ -12,7 +12,7 @@ class Turn:
     playerAction = 0
     npcAction = int(randint(1,3))
     
-    while str(playerAction) not in '12':
+    while int(playerAction) not in [1, 2] :
       print('Player HP: ',self.player.hp)
       print('Enemy HP: ',self.npc.hp)
 

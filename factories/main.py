@@ -19,7 +19,7 @@ def makePlayer(name:str):
 
 def makeNpc(score:int):
     selector = ["Goblin"]
-    choose = randint(0, len(selector))
+    choose = randint(0, len(selector)-1)
     if selector[choose] == 'Goblin':
         return makeGoblin(score)
 
