@@ -4,17 +4,11 @@ from time import sleep
 from random import randint, random
 from battle import Battle
 import helpers
+from factories.main import makeGoblin
 
 helpers.separador()
 
-goblinhp = 80
-baseAtk = 8 
-maxAtk = 13
-goblinatk = randint(baseAtk, maxAtk)
-baseArm = 5
-maxArm =9
-goblinarm = randint(baseArm, maxArm )
-mon = Goblin( goblinhp, goblinatk, goblinarm)
+
 helpers.separador()
 print(f'''{'Boas vindas à "Crise Infinita Infinita Infinita.':.^30}
 {'Você irá batalhar infinitamente, até cansar ou morrer.':.^30}
@@ -29,6 +23,7 @@ arm = 8
 monkilled = 0
 bosskilled = 0
 j1 = Player(name, hp, atk, arm)
+mon = makeGoblin(monkilled)
 
 helpers.separador()
 opt = 0
@@ -36,7 +31,7 @@ print('''    Qual será sua arma?:
     [  1  ] Espada
     [  2  ] Lança
     [  3  ] Machado''')
-while str(opt) not in "123":
+while int(opt) not in [1, 2, 3]:
     opt = int(input('Digite uma opção: '))
 if opt == 1:
     helpers.separador()
@@ -72,19 +67,7 @@ while j1.alive:
     Battle(j1,mon)
     if(j1.alive):
         monkilled += 1
-        
-        goblinhp += 10
-        mon.hp = goblinhp
-        
-        baseAtk += 5
-        maxAtk +=5
-        mon.atk = randint(baseAtk,maxAtk)
-
-        baseArm += 5
-        maxArm +=5
-        mon.arm = randint(baseArm,maxArm)
-        mon.alive = goblinarm
-        mon.alive = True
+        mon = makeGoblin(monkilled)
 
 print(f'Fim de jogo, você fez {monkilled * 100} pontos!')
 
