@@ -1,5 +1,5 @@
 from player.main import Player
-from npc.main import Npc
+from npc.goblin.main import Goblin
 from time import sleep
 from random import randint, random
 from battle import Battle
@@ -14,7 +14,7 @@ goblinatk = randint(baseAtk, maxAtk)
 baseArm = 5
 maxArm =9
 goblinarm = randint(baseArm, maxArm )
-mon = Npc('Goblin', goblinhp, goblinatk, goblinarm)
+mon = Goblin( goblinhp, goblinatk, goblinarm)
 helpers.separador()
 print(f'''{'Boas vindas à "Crise Infinita Infinita Infinita.':.^30}
 {'Você irá batalhar infinitamente, até cansar ou morrer.':.^30}
