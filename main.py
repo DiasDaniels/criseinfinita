@@ -4,7 +4,7 @@ from time import sleep
 from random import randint, random
 from battle import Battle
 import helpers
-from factories.main import makeGoblin
+from factories.main import makeGoblin, makePlayer
 
 helpers.separador()
 
@@ -17,12 +17,9 @@ helpers.separador()
 artigo = []
 name = (input(str("Qual é o seu nome, Aventureiro? "))).strip().capitalize()
 arma = ''
-hp = 100
-atk = 10
-arm = 8
 monkilled = 0
 bosskilled = 0
-j1 = Player(name, hp, atk, arm)
+j1 = makePlayer(name)
 mon = makeGoblin(monkilled)
 
 helpers.separador()
