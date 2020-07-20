@@ -4,7 +4,7 @@ from time import sleep
 from random import randint, random
 from battle import Battle
 import helpers
-from factories.main import makeGoblin, makePlayer
+from factories.main import makePlayer, makeNpc
 
 helpers.separador()
 
@@ -20,7 +20,8 @@ arma = ''
 monkilled = 0
 bosskilled = 0
 j1 = makePlayer(name)
-mon = makeGoblin(monkilled)
+
+mon = makeNpc(monkilled)
 
 helpers.separador()
 opt = 0
@@ -65,6 +66,6 @@ while j1.alive:
     if(j1.alive):
         monkilled += 1
         j1.setScore (monkilled * 100)
-        mon = makeGoblin(monkilled)
+        mon = makeNpc(monkilled)
 
 print('Fim de jogo, você fez', j1.getScore(), 'pontos!')

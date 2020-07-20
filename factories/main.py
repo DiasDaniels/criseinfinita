@@ -16,3 +16,10 @@ def makePlayer(name:str):
     atk = 10
     arm = 8
     return Player(name, hp, atk, arm)
+
+def makeNpc(score:int):
+    selector = ["Goblin"]
+    choose = randint(0, len(selector))
+    if selector[choose] == 'Goblin':
+        return makeGoblin(score)
+
