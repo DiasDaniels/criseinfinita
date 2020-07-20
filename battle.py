@@ -10,7 +10,7 @@ class Battle:
     self.turns = 0
     self.__fight()
   def __fight(self):
-    print(f'Um {self.npc.name} apareceu! Prepare-se!')
+    print('Um ', self.npc.name, ' apareceu! Prepare-se!')
     printWSleep()
     while self.player.alive and self.npc.alive:
       self.turns += 1
