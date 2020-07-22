@@ -46,14 +46,12 @@ helpers.separador()
 
 j1 = makePlayer(name, opt)
 
-print(
+helpers.print1by1(
     f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, ouviu um chamado abaixo de uma ponte que cruzava um córrego
 um velho homem fedorento que tinha com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve, o mendigo, ausente de suas
 faculdades mentais, te entrega {artigo[0]} {arma}, você segue seu caminho após a tempestade de gafanhotos e, ao final da ponte, você encontra um Goblin sedento
 por sangue.
 Prepare-se para usar {artigo[1]} {arma}!''')
-
-helpers.separador10s()
 
 helpers.separador()
 while j1.alive:
