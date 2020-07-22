@@ -1,7 +1,7 @@
 from time import sleep
 import sys
 def printWSleep():
-    for i in range(9):
+    for x in range(9):
         sleep(0.25)
         print('=', end= " ", flush= True)
     print('=')

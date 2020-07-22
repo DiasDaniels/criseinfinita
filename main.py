@@ -3,11 +3,11 @@ import helpers
 from factories.main import makePlayer, makeNpc
 
 helpers.separador()
-
+print('\033[32m, Crise Infinita')
 helpers.separador()
-print(f'''{'Boas vindas à "Crise Infinita Infinita Infinita.':.^30}
-{'Você irá batalhar infinitamente, até cansar ou morrer.':.^30}
-{'Vamos começar com o básico.':.^30}''')
+print(f'''{'Boas vindas à "Crise Infinita".':=^90}
+{'Você irá batalhar infinitamente, até cansar ou morrer.':=^90}
+{'Vamos começar com o básico.':=^90}''')
 helpers.separador()
 artigo = []
 name = (input(str("Qual é o seu nome, Aventureiro? "))).strip().capitalize()
