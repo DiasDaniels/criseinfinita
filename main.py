@@ -3,7 +3,7 @@ import helpers
 from factories.main import makePlayer, makeNpc
 
 helpers.separador()
-print('\033[32m, Crise Infinita')
+
 helpers.separador()
 print(f'''{'Boas vindas à "Crise Infinita".':=^90}
 {'Você irá batalhar infinitamente, até cansar ou morrer.':=^90}
