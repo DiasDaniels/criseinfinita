@@ -1,13 +1,8 @@
-from player.main import Player
-from npc.goblin.main import Goblin
-from time import sleep
-from random import randint, random
 from battle import Battle
 import helpers
 from factories.main import makePlayer, makeNpc
 
 helpers.separador()
-
 
 helpers.separador()
 print(f'''{'Boas vindas à "Crise Infinita Infinita Infinita.':.^30}
@@ -19,7 +14,6 @@ name = (input(str("Qual é o seu nome, Aventureiro? "))).strip().capitalize()
 arma = ''
 monkilled = 0
 bosskilled = 0
-
 
 mon = makeNpc(monkilled)
 
@@ -44,15 +38,16 @@ if opt == 3:
     print('Você escolheu o Machado, prepare-se!')
     arma = 'Machado'
 
-if(arma =='Machado'):
-    artigo = ['um','seu']
+if (arma == 'Machado'):
+    artigo = ['um', 'seu']
 else:
-    artigo = ['uma','sua']
+    artigo = ['uma', 'sua']
 helpers.separador()
 
 j1 = makePlayer(name, opt)
 
-print (f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, ouviu um chamado abaixo de uma ponte que cruzava um córrego
+print(
+    f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, ouviu um chamado abaixo de uma ponte que cruzava um córrego
 um velho homem fedorento que tinha com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve, o mendigo, ausente de suas
 faculdades mentais, te entrega {artigo[0]} {arma}, você segue seu caminho após a tempestade de gafanhotos e, ao final da ponte, você encontra um Goblin sedento
 por sangue.
@@ -63,10 +58,14 @@ helpers.separador10s()
 helpers.separador()
 while j1.alive:
 
-    Battle(j1,mon)
-    if(j1.alive):
-        monkilled += 1
-        j1.setScore (monkilled * 100)
+    Battle(j1, mon)
+    if j1.alive:
+        if mon.name in ['Goblin', 'Ogro']:
+            monkilled += 1
+            j1.setScore(monkilled * 100)
+        else:
+            bosskilled +=1
+            j1.setScore(monkilled * 200)
         mon = makeNpc(monkilled)
 
-print('Fim de jogo, você fez', j1.getScore(), 'pontos!')
+print('Fim de jogo, você fez', j1.getScore(), 'pontos! ')

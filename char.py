@@ -22,7 +22,7 @@ class Char:
     
     def __amIDead(self):
         if(self.hp < 1):
-            print(f'{self.__CALLABLENAME}. morreu! ☠')
+            print(self.__CALLABLENAME, 'morreu! ☠')
             self.alive = False
 
     def calculateDamage(self,dmg):
@@ -33,3 +33,11 @@ class Char:
     
     def setCallableName(self, name):
         self.__CALLABLENAME = str(name)
+
+    def healAtk(self,atk):
+        if 280 - self.hp <= self.atk/2:
+            self.hp = 280
+            print(self.__CALLABLENAME, 'Sugou seu sangue e se curou em', int(280 - self.hp))
+        else:
+            self.hp += int(self.atk/2)
+            print(self.__CALLABLENAME, 'Sugou seu sangue e se curou em', int(self.atk/2))

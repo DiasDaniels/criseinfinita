@@ -25,8 +25,14 @@ class Turn:
 
     if int(playerAction) == 2:
       self.player.defend = True
-    if npcAction == 3:
-      self.npc.defend = True
+    if self.npc.name in ['Goblin', 'Ogro']:
+      if npcAction == 3:
+        self.npc.defend = True
+    if self.npc.name in ['Vampiro']:
+      if npcAction == 3:
+        self.npc.healAtk(self.npc.atk)
+        self.npc.defend = False
+
 
     if self.npc.defend and self.player.defend:
       self.player.turnHeal()
