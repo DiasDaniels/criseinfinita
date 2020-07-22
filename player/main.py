@@ -24,7 +24,8 @@ class Player(Char):
             self.hp = 100
 
         else:
-            print('Vocẽ recebeu', self.__score, 'de experiência!')
+            print('Você recebeu 100 de experiência!')
+            print('Você tem', self.__score + 100, 'de experiência!')
         self.__score = score
 
     def getScore(self):
