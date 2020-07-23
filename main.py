@@ -3,7 +3,7 @@ import helpers
 from factories.main import makePlayer, makeNpc
 
 helpers.separador()
-
+print(f"{'Crise Infinita':=^90}")
 helpers.separador()
 print(f'''{'Boas vindas à "Crise Infinita".':=^90}
 {'Você irá batalhar infinitamente, até cansar ou morrer.':=^90}
@@ -47,11 +47,13 @@ helpers.separador()
 j1 = makePlayer(name, opt)
 
 helpers.print1by1(
-    f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, ouviu um chamado abaixo de uma ponte que cruzava um córrego
-um velho homem fedorento que tinha com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve, o mendigo, ausente de suas
-faculdades mentais, te entrega {artigo[0]} {arma}, você segue seu caminho após a tempestade de gafanhotos e, ao final da ponte, você encontra um Goblin sedento
-por sangue.
-Prepare-se para usar {artigo[1]} {arma}!''')
+    f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, de repente,
+     ouviu um chamado abaixo de uma ponte que cruzava um córrego, era um velho homem fedorento que tinha
+     com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve,
+     o mendigo, ausente de suas faculdades mentais, te entrega {artigo[0]} {arma}, 
+     você segue seu caminho após a tempestade de gafanhotos e, ao final da ponte, 
+     você encontra um Goblin sedento por sangue, o seu sangue.
+     Prepare-se para usar {artigo[1]} {arma}!!!\n''')
 
 helpers.separador()
 while j1.alive:

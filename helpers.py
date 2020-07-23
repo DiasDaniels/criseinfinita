@@ -7,7 +7,7 @@ def printWSleep():
     print('=')
   
 def separador():
-    print('||✝'*30)
+    print('||✝'*31)
 
   
 def print1by1(text, delay=0.05):
