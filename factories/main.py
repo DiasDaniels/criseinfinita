@@ -1,6 +1,7 @@
 from npc.goblin.main import Goblin
 from npc.ogre.main import Ogre
 from npc.vampire.main import Vampire
+from npc.succubus.main import Succubus
 from random import randint
 from player.main import Player
 
@@ -35,6 +36,14 @@ def makeVampire(score: int):
     vampirearm = baseArm
     return Vampire(vampirehp, vampireatk, vampirearm)
 
+def makeSuccubus(score: int):
+    succubushp = 280
+    baseAtk = 10 + (6 * score) + 2
+    succubusatk = baseAtk
+    baseArm = 16 + (3 * score) + 1
+    succubusarm = baseArm
+    return Succubus(succubushp, succubusatk, succubusarm)
+
 
 def makePlayer(name: str, classe: int):
     if classe == 1:
@@ -42,8 +51,8 @@ def makePlayer(name: str, classe: int):
         atk = 15
         arm = 10
     elif classe == 2:
-        hp = 100
-        atk = 40
+        hp = 1000
+        atk = 50
         arm = 8
     else:
         hp = 100
@@ -54,12 +63,16 @@ def makePlayer(name: str, classe: int):
 
 
 def makeNpc(score: int):
-    selector = ["Goblin", "Ogro","Vampiro"]
-    choose = randint(0, len(selector) - 2)
     if score % 5 == 0 and score != 0:
-        selector = 'Vampiro'
-        return makeVampire(score)
+        selektor = ['Vampiro', 'Succubus']
+        choose = randint(0, len(selektor) - 1)
+        if selektor [choose] == 'Vampiro':
+            return makeVampire(score)
+        if selektor [choose] == 'Succubus':
+            return makeSuccubus(score)
     else:
+        selector = ["Goblin", "Ogro"]
+        choose = randint(0, len(selector) - 1)
         if selector[choose] == 'Goblin':
             return makeGoblin(score)
         if selector[choose] == 'Ogro':

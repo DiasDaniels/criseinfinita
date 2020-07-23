@@ -1,7 +1,7 @@
 from player.main import Player
 from npc.main import Npc
 from random import randint
-from helpers import printWSleep
+from helpers import printWSleep, print1by1
 class Turn:
   def __init__(self,player:Player,npc:Npc):
     self.player = player
@@ -32,15 +32,26 @@ class Turn:
       if npcAction == 3:
         self.npc.healAtk(self.npc.atk)
         self.npc.defend = False
+    if self.npc.name in ['Succubus']:
+      if npcAction == 3:
+        self.player.tomoucc = True
+        self.player.defend = False
 
-
+    if int(playerAction) == 0:
+      self.npc.calculateDamage(0)
+    if self.player.tomoucc == True:
+      playerAction = 0
+      print1by1('O Succubus te lança um charme irresistível, você não consegue se mover!\n')
     if self.npc.defend and self.player.defend:
       self.player.turnHeal()
-    if not self.player.defend:
+    if playerAction == 0:
+      self.npc.calculateDamage(0)
+    elif not self.player.defend:
       self.npc.calculateDamage(self.player.atk)
     if not(self.npc.defend) and self.npc.alive:
       self.player.calculateDamage(self.npc.atk)
     
+    self.player.tomoucc = False
     self.player.defend = False
     self.npc.defend = False
     printWSleep()

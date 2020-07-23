@@ -7,6 +7,7 @@ class Char:
         self.alive = True
         self.defend = False
         self.__CALLABLENAME = self.name
+        self.tomoucc = False
 
     def __losshp(self, dmg):
         self.hp -= int(dmg)
@@ -41,3 +42,6 @@ class Char:
         else:
             self.hp += int(self.atk/2)
             print(self.__CALLABLENAME, 'Sugou seu sangue e se curou em', int(self.atk/2))
+    
+        
+
