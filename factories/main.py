@@ -36,6 +36,7 @@ def makeVampire(score: int):
     vampirearm = baseArm
     return Vampire(vampirehp, vampireatk, vampirearm)
 
+
 def makeSuccubus(score: int):
     succubushp = 280
     baseAtk = 10 + (6 * score) + 2
@@ -66,9 +67,9 @@ def makeNpc(score: int):
     if score % 5 == 0 and score != 0:
         selektor = ['Vampiro', 'Succubus']
         choose = randint(0, len(selektor) - 1)
-        if selektor [choose] == 'Vampiro':
+        if selektor[choose] == 'Vampiro':
             return makeVampire(score)
-        if selektor [choose] == 'Succubus':
+        if selektor[choose] == 'Succubus':
             return makeSuccubus(score)
     else:
         selector = ["Goblin", "Ogro"]
