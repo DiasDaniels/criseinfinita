@@ -48,12 +48,11 @@ j1 = makePlayer(name, opt)
 
 helpers.print1by1(
     f'''Durante uma tempestade de gafanhotos, {j1.name} procurava um lugar para se abrigar, de repente,
-     ouviu um chamado abaixo de uma ponte que cruzava um córrego, era um velho homem fedorento que tinha
-     com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve,
-     o mendigo, ausente de suas faculdades mentais, te entrega {artigo[0]} {arma}, 
-     você segue seu caminho após a tempestade de gafanhotos e, ao final da ponte, 
-     você encontra um Goblin sedento por sangue, o seu sangue.
-     Prepare-se para usar {artigo[1]} {arma}!!!\n''')
+ouviu um chamado abaixo de uma ponte que cruzava um córrego, era um velho homem fedorento que tinha
+com ele algumas trouxas, umas de roupas e outras de sabe-se Odin lá o que. Após um diálogo breve,
+o mendigo, ausente de suas faculdades mentais, te entrega {artigo[0]} {arma}, você segue seu caminho após
+a tempestade de gafanhotos e, ao final da ponte, você encontra um {mon.name} sedento por sangue, o seu sangue.
+Prepare-se para usar {artigo[1]} {arma}!!!\n''')
 
 helpers.separador()
 while j1.alive:
@@ -62,10 +61,10 @@ while j1.alive:
     if j1.alive:
         if mon.name in ['Goblin', 'Ogro']:
             monkilled += 1
-            j1.setScore(monkilled * 100)
+            j1.setScore(monkilled)
         else:
-            bosskilled +=1
-            j1.setScore(monkilled * 200)
+            monkilled += 1
+            j1.setScore(monkilled + 1)
         mon = makeNpc(monkilled)
 
 print('Fim de jogo, você fez', j1.getScore(), 'pontos! ')
